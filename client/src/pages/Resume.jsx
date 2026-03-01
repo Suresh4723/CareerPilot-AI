@@ -66,14 +66,24 @@ const Resume = () => {
             <label className="career-label" htmlFor="resumePdf">
               Resume PDF
             </label>
-            <input
-              id="resumePdf"
-              className="input"
-              type="file"
-              accept="application/pdf"
-              onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
-            />
-            {resumeFile ? <p className="muted">Selected: {resumeFile.name}</p> : null}
+            <div className="resume-upload-control">
+              <input
+                id="resumePdf"
+                className="resume-file-input"
+                type="file"
+                accept="application/pdf"
+                onClick={(e) => {
+                  e.currentTarget.value = '';
+                }}
+                onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
+              />
+              <label htmlFor="resumePdf" className="resume-upload-trigger">
+                Upload PDF
+              </label>
+              <p className="resume-file-name">
+                {resumeFile ? resumeFile.name : 'No file selected yet'}
+              </p>
+            </div>
           </div>
 
           <div>

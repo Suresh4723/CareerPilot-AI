@@ -120,8 +120,7 @@ const Career = () => {
         <div className="page-head">
           <h1>Career Recommendation Studio</h1>
           <p>
-            Generate ranked career options with skill-match scoring, skill-gap insights, and
-            certification guidance.
+            Generate ranked career options with skill-match scoring, skill-gap insights, and certification guidance.
           </p>
         </div>
         <div className="career-hero-meta">
