@@ -22,18 +22,19 @@ const sanitizeUser = (user) => ({
 
 const setAuthCookies = (res, accessToken, refreshToken) => {
   const secure = process.env.NODE_ENV === 'production';
+  const sameSite = secure ? 'none' : 'lax';
 
   res.cookie('accessToken', accessToken, {
     httpOnly: true,
     secure,
-    sameSite: 'lax',
+    sameSite,
     maxAge: 60 * 60 * 1000
   });
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
     secure,
-    sameSite: 'lax',
+    sameSite,
     maxAge: 7 * 24 * 60 * 60 * 1000
   });
 };
@@ -113,11 +114,13 @@ export const refreshAccessToken = async (req, res) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_REFRESH_SECRET || process.env.JWT_SECRET);
     const accessToken = generateAccessToken({ id: decoded.id, role: decoded.role });
+    const secure = process.env.NODE_ENV === 'production';
+    const sameSite = secure ? 'none' : 'lax';
 
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
+      secure,
+      sameSite,
       maxAge: 60 * 60 * 1000
     });
 
@@ -128,8 +131,11 @@ export const refreshAccessToken = async (req, res) => {
 };
 
 export const logout = async (_req, res) => {
-  res.clearCookie('accessToken');
-  res.clearCookie('refreshToken');
+  const secure = process.env.NODE_ENV === 'production';
+  const sameSite = secure ? 'none' : 'lax';
+
+  res.clearCookie('accessToken', { httpOnly: true, secure, sameSite });
+  res.clearCookie('refreshToken', { httpOnly: true, secure, sameSite });
   return res.status(200).json({ message: 'Logged out' });
 };
 
