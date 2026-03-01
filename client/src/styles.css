@@ -2087,6 +2087,8 @@ a {
     linear-gradient(130deg, rgba(231, 241, 255, 0.9), rgba(233, 251, 247, 0.72)),
     #fff;
   border: 1px solid #d8e6fa;
+  border-radius: 18px;
+  padding: 14px 18px;
 }
 
 .career-hero-meta,
@@ -2098,7 +2100,64 @@ a {
 .interview-lab-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+}
+
+.career-hero .page-head,
+.resume-hero .page-head,
+.interview-lab-hero .page-head,
+.roadmap-hero .page-head,
+.resources-hero .page-head,
+.chatbot-hero .page-head,
+.profile-hero .page-head {
+  margin-bottom: 8px;
+}
+
+.career-hero .page-head h1,
+.resume-hero .page-head h1,
+.interview-lab-hero .page-head h1,
+.roadmap-hero .page-head h1,
+.resources-hero .page-head h1,
+.chatbot-hero .page-head h1,
+.profile-hero .page-head h1 {
+  font-size: clamp(1.28rem, 1.45vw, 1.65rem);
+}
+
+.career-hero .page-head p,
+.resume-hero .page-head p,
+.interview-lab-hero .page-head p,
+.roadmap-hero .page-head p,
+.resources-hero .page-head p,
+.chatbot-hero .page-head p,
+.profile-hero .page-head p {
+  margin-top: 6px;
+  line-height: 1.5;
+  font-size: 0.98rem;
+  max-width: 100%;
+}
+
+.career-hero .badge,
+.resume-hero .badge,
+.interview-lab-hero .badge,
+.roadmap-hero .badge,
+.resources-hero .badge,
+.chatbot-hero .badge,
+.profile-hero .badge {
+  margin: 0;
+  padding: 4px 9px;
+  font-size: 0.72rem;
+}
+
+@media (min-width: 1200px) {
+  .career-hero .page-head p,
+  .resume-hero .page-head p,
+  .interview-lab-hero .page-head p,
+  .roadmap-hero .page-head p,
+  .resources-hero .page-head p,
+  .chatbot-hero .page-head p,
+  .profile-hero .page-head p {
+    white-space: nowrap;
+  }
 }
 
 .career-actions,
@@ -2401,6 +2460,22 @@ a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.interview-config-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 14px;
+  align-items: end;
+}
+
+.interview-config-grid > div {
+  min-width: 0;
+}
+
+.interview-focus-block {
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+
 .interview-track-card {
   border: 1px solid #d8e5fb;
   border-radius: 14px;
@@ -2431,15 +2506,15 @@ a {
 .interview-topic-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
 }
 
 .interview-chip {
   border: 1px solid #d6e3fb;
   border-radius: 999px;
   background: #f5f9ff;
-  padding: 6px 11px;
-  font-size: 0.82rem;
+  padding: 5px 11px;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #2a4f83;
 }
@@ -2448,6 +2523,16 @@ a {
   color: #fff;
   background: linear-gradient(145deg, #0b6bcb, #0a5bac);
   border-color: transparent;
+}
+
+.interview-actions {
+  margin-top: 10px;
+}
+
+.interview-actions .button {
+  height: 40px;
+  padding: 0 15px;
+  font-size: 0.95rem;
 }
 
 .interview-live-head,
@@ -2703,6 +2788,10 @@ a {
 }
 
 @media (max-width: 1180px) {
+  .interview-config-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .home-module-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

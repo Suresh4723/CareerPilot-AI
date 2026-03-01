@@ -344,7 +344,7 @@ const Interview = () => {
         </div>
 
         {track !== 'subject' ? (
-          <div style={{ marginTop: 12 }}>
+          <div className="interview-focus-block">
             <label className="career-label">Focus Topics</label>
             <div className="interview-topic-chips">
               {trackMeta.subtopics.map((topic) => (

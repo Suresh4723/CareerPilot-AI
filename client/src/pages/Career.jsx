@@ -110,10 +110,6 @@ const Career = () => {
     }
   };
 
-  const fillSample = () => setPayload(DEFAULT_FORM);
-  const clearForm = () =>
-    setPayload({ skills: '', interests: '', education: '', experienceLevel: 'fresher' });
-
   return (
     <div className="career-page">
       <section className="panel career-hero">
@@ -190,12 +186,6 @@ const Career = () => {
           <div className="career-actions">
             <button className="button" type="submit" disabled={loading}>
               {loading ? 'Generating...' : 'Generate Recommendations'}
-            </button>
-            <button className="button career-ghost" type="button" onClick={fillSample}>
-              Use Sample
-            </button>
-            <button className="button career-ghost" type="button" onClick={clearForm}>
-              Clear
             </button>
           </div>
         </form>
